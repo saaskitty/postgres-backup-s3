@@ -6,8 +6,9 @@ This project provides Docker images to periodically back up a PostgreSQL databas
 ```yaml
 services:
   postgres:
-    image: postgres:16
+    image: postgres:17beta2
     environment:
+      POSTGRES_DB: primary
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
 
@@ -22,10 +23,8 @@ services:
       S3_SECRET_ACCESS_KEY: secret
       S3_BUCKET: my-bucket
       S3_PREFIX: backup
-      POSTGRES_HOST: postgres
-      POSTGRES_DATABASE: dbname
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: primary
+      POSTGRES_DB_URL: postgres://user:password@postgres:5432/primary
 ```
 
 - Images are tagged by the major PostgreSQL version supported: `12`, `13`, `14`, `15` or `16`.
@@ -56,7 +55,7 @@ docker exec <container name> sh restore.sh <timestamp>
 ## Build the image locally
 `ALPINE_VERSION` determines Postgres version compatibility. See [`build-and-push-images.yml`](.github/workflows/build-and-push-images.yml) for the latest mapping.
 ```sh
-DOCKER_BUILDKIT=1 docker build --build-arg ALPINE_VERSION=3.14 .
+DOCKER_BUILDKIT=1 docker build --build-arg ALPINE_VERSION=3.21 .
 ```
 ## Run a simple test environment with Docker Compose
 ```sh
