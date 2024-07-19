@@ -1,3 +1,8 @@
+if [ -z "$POSTGRES_DB" ]; then
+  echo "You need to set the POSTGRES_DB environment variable."
+  exit 1
+fi
+
 if [ -z "$POSTGRES_DB_URL" ]; then
   echo "You need to set the POSTGRES_DB_URL environment variable."
   exit 1
