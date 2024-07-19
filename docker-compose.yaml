@@ -3,8 +3,9 @@
 
 services:
   postgres:
-    image: postgres:14
+    image: postgres:17beta2
     environment:
+      POSTGRES_DB: primary
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
 
@@ -21,8 +22,5 @@ services:
       S3_ACCESS_KEY_ID:
       S3_SECRET_ACCESS_KEY:
       S3_BUCKET:
-      S3_PREFIX: backup
-      POSTGRES_HOST: postgres
-      POSTGRES_DATABASE: postgres
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: primary
+      POSTGRES_DB_URL: postgresql://user:password@postgres:5432/primary
