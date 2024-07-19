@@ -22,7 +22,6 @@ services:
       S3_ACCESS_KEY_ID: key
       S3_SECRET_ACCESS_KEY: secret
       S3_BUCKET: my-bucket
-      S3_PREFIX: backup
       POSTGRES_DB: primary
       POSTGRES_DB_URL: postgres://user:password@postgres:5432/primary
 ```
