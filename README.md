@@ -13,7 +13,7 @@ services:
       POSTGRES_PASSWORD: password
 
   backup:
-    image: eeshugerman/postgres-backup-s3:16
+    image: saaskitty/postgres-backup-s3:17beta2
     environment:
       SCHEDULE: '@weekly'     # optional
       BACKUP_KEEP_DAYS: 7     # optional
@@ -54,7 +54,7 @@ docker exec <container name> sh restore.sh <timestamp>
 ## Build the image locally
 `ALPINE_VERSION` determines Postgres version compatibility. See [`build-and-push-images.yml`](.github/workflows/build-and-push-images.yml) for the latest mapping.
 ```sh
-DOCKER_BUILDKIT=1 docker build --build-arg ALPINE_VERSION=3.21 .
+DOCKER_BUILDKIT=1 docker build --build-arg ALPINE_VERSION=3.20 .
 ```
 ## Run a simple test environment with Docker Compose
 ```sh
