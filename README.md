@@ -15,15 +15,15 @@ services:
   backup:
     image: saaskitty/postgres-backup-s3:17beta2
     environment:
-      SCHEDULE: '@weekly'     # optional
+      AWS_S3_REGION: region
+      AWS_S3_ACCESS_KEY_ID: key
+      AWS_S3_SECRET_ACCESS_KEY: secret
+      AWS_S3_BUCKET: my-bucket
       BACKUP_KEEP_DAYS: 7     # optional
+      SCHEDULE: '@weekly'     # optional
       PASSPHRASE: passphrase  # optional
-      S3_REGION: region
-      S3_ACCESS_KEY_ID: key
-      S3_SECRET_ACCESS_KEY: secret
-      S3_BUCKET: my-bucket
-      POSTGRES_DB: primary
-      POSTGRES_DB_URL: postgres://user:password@postgres:5432/primary
+      PRIMARY_DB: primary
+      PRIMARY_DB_URL: postgres://user:password@postgres:5432/primary
 ```
 
 - Images are tagged by the major PostgreSQL version supported: `16` or `17beta2`.
