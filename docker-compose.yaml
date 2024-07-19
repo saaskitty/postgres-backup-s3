@@ -23,4 +23,4 @@ services:
       S3_SECRET_ACCESS_KEY:
       S3_BUCKET:
       POSTGRES_DB: primary
-      POSTGRES_DB_URL: postgresql://user:password@postgres:5432/primary
+      POSTGRES_DB_URL: postgres://user:password@postgres:5432/primary
