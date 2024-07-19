@@ -5,7 +5,7 @@ set -o pipefail
 
 source ./env.sh
 
-s3_uri_base="s3://${S3_BUCKET}/${S3_PREFIX}"
+s3_uri_base="s3://${S3_BUCKET}"
 
 if [ -z "$PASSPHRASE" ]; then
   file_type=".dump"
