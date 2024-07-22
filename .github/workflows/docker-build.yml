@@ -36,7 +36,6 @@ jobs:
           push: true
           tags: ${{ github.repository }}:${{ matrix.postgres }}
           build-args: |
-            ALPINE_VERSION=${{ matrix.alpine }}
             POSTGRES_VERSION=${{ matrix.postgres }}
           platforms: |
             linux/amd64
