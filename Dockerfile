@@ -1,6 +1,4 @@
-ARG ALPINE_VERSION
-ARG POSTGRES_VERSION
-FROM alpine:${ALPINE_VERSION}
+FROM postgres:17beta2-alpine
 ARG TARGETARCH
 
 ADD src/install.sh install.sh
