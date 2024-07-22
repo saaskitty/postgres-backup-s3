@@ -3,24 +3,10 @@
 set -eux
 set -o pipefail
 
-# Check if POSTGRES_VERSION is passed
-if [ -z "$1" ]; then
-  echo "Error: POSTGRES_VERSION is not set."
-  exit 1
-fi
-
-POSTGRES_VERSION=$1
-
 apk update
-apk add build-base gcc postgresql-dev bison flex perl readline-dev zlib-dev
 
 # install pg_dump
-wget https://ftp.postgresql.org/pub/source/v17beta2/postgresql-${POSTGRES_VERSION}.tar.gz
-tar -xvzf postgresql-${POSTGRES_VERSION}.tar.gz
-cd postgresql-${POSTGRES_VERSION}
-./configure
-make
-make install
+apk add postgresql-client
 
 # install gpg
 apk add gnupg
