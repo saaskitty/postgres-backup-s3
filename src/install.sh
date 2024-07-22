@@ -3,8 +3,8 @@
 set -eux
 set -o pipefail
 
-apk add build-base gcc postgresql-dev bison flex perl readline-dev zlib-dev
 apk update
+apk add build-base gcc postgresql-dev bison flex perl readline-dev zlib-dev
 
 # install pg_dump
 wget https://ftp.postgresql.org/pub/source/v17beta2/postgresql-${POSTGRES_VERSION}.tar.gz
