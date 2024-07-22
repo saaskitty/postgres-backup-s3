@@ -3,6 +3,14 @@
 set -eux
 set -o pipefail
 
+# Check if POSTGRES_VERSION is passed
+if [ -z "$1" ]; then
+  echo "Error: POSTGRES_VERSION is not set."
+  exit 1
+fi
+
+POSTGRES_VERSION=$1
+
 apk update
 apk add build-base gcc postgresql-dev bison flex perl readline-dev zlib-dev
 
