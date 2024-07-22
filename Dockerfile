@@ -1,9 +1,8 @@
-ARG POSTGRES_VERSION
 FROM alpine:3.20
 ARG TARGETARCH
 
 ADD src/install.sh install.sh
-RUN sh install.sh ${POSTGRES_VERSION} && rm install.sh
+RUN sh install.sh && rm install.sh
 
 ENV POSTGRES_DB ''
 ENV POSTGRES_DB_URL ''
