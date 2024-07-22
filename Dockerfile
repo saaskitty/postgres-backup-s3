@@ -1,5 +1,6 @@
-FROM postgres:17beta2-alpine
+ARG POSTGRES_VERSION
 ARG TARGETARCH
+FROM postgres:${POSTGRES_VERSION}-alpine
 
 ADD src/install.sh install.sh
 RUN sh install.sh && rm install.sh
