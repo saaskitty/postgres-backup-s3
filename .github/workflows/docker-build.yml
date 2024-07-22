@@ -11,8 +11,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - { postgres: 16, alpine: '3.20' }
-          - { postgres: '17beta2', alpine: '3.20' }
+          - { postgres: '17beta2' }
 
     steps:
       - name: Checkout repository
