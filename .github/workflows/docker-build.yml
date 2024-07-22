@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - { postgres: '17beta2' }
+          - { postgres: '16.3' }
 
     steps:
       - name: Checkout repository
